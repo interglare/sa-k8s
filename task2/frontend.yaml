@@ -18,6 +18,19 @@ spec:
           ports: 
             - name: frontend
               containerPort: 3000
+          livenessProbe: 
+            httpGet:
+              port: 3000
+              path: /
+            initialDelaySeconds: 25
+            periodSeconds: 5
+            timeoutSeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 3000
+              path: /
+            initialDelaySeconds: 25
+            periodSeconds: 5
 
 ---
 
